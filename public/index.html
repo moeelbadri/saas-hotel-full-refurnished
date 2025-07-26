@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HotelEase - Modern Hotel Management SaaS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .dashboard-preview {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border-radius: 1.5rem;
+        }
+        .auth-tab.active {
+            background-color: white;
+            color: #3b82f6;
+            font-weight: 600;
+        }
+        .auth-form {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-hotel text-indigo-600 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-indigo-600">HotelEase</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center space-x-8">
+                    <a href="#features" class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Features</a>
+                    <a href="#stats" class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Stats</a>
+                    <a href="#pricing" class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Pricing</a>
+                    <a href="/login" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium transition">Login</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="gradient-bg pt-24 pb-32 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">Revolutionize Your Hotel Management</h1>
+                    <p class="text-xl mb-8 opacity-90">All-in-one SaaS solution to streamline operations, increase bookings, and enhance guest experiences.</p>
+                    <div class="flex space-x-4">
+                        <a href="#auth" class="bg-white text-indigo-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold text-lg shadow-lg transition duration-300">Start Free Trial</a>
+                        <a href="#features" class="border-2 border-white text-white hover:bg-white hover:text-indigo-600 px-6 py-3 rounded-lg font-semibold text-lg transition duration-300">Learn More</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="dashboard-preview bg-white p-2 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Dashboard Preview" class="rounded-xl w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trusted By -->
+    <div class="bg-gray-50 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-gray-500 mb-8">Trusted by leading hotels worldwide</p>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 items-center justify-center">
+                <img src="https://logo.clearbit.com/hilton.com" alt="Hilton" class="h-12 opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition">
+                <img src="https://logo.clearbit.com/marriott.com" alt="Marriott" class="h-12 opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition">
+                <img src="https://logo.clearbit.com/hyatt.com" alt="Hyatt" class="h-10 opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition">
+                <img src="https://logo.clearbit.com/accor.com" alt="Accor" class="h-10 opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition">
+                <img src="https://logo.clearbit.com/ihg.com" alt="IHG" class="h-10 opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition">
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Powerful Features for Your Hotel</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Everything you need to manage your property efficiently and delight your guests</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-calendar-check text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Reservation Management</h3>
+                    <p class="text-gray-600">Easily manage bookings, check-ins, and check-outs with our intuitive interface. Reduce no-shows with automated reminders.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Real-time Analytics</h3>
+                    <p class="text-gray-600">Get actionable insights with comprehensive dashboards and reports. Track occupancy rates, revenue, and guest preferences.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-concierge-bell text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Housekeeping Automation</h3>
+                    <p class="text-gray-600">Streamline housekeeping operations with automated room status updates and task assignments to your staff.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-credit-card text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Payment Processing</h3>
+                    <p class="text-gray-600">Secure payment processing with support for multiple payment methods and automatic invoicing.</p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Guest Relationship</h3>
+                    <p class="text-gray-600">Build lasting relationships with personalized communication, loyalty programs, and feedback collection.</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Mobile App</h3>
+                    <p class="text-gray-600">Manage your hotel on the go with our dedicated mobile app for both staff and guests.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistics Section -->
+    <div id="stats" class="py-20 gradient-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Transforming the Hospitality Industry</h2>
+                <p class="text-xl opacity-90 max-w-3xl mx-auto">Join thousands of hotels that have improved their operations with HotelEase</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <!-- Stat 1 -->
+                <div class="stat-card bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-8 rounded-xl border border-white border-opacity-20 transition duration-300">
+                    <div class="text-4xl font-bold mb-2">1,250+</div>
+                    <div class="text-lg opacity-90">Hotels Worldwide</div>
+                </div>
+                
+                <!-- Stat 2 -->
+                <div class="stat-card bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-8 rounded-xl border border-white border-opacity-20 transition duration-300">
+                    <div class="text-4xl font-bold mb-2">98%</div>
+                    <div class="text-lg opacity-90">Customer Satisfaction</div>
+                </div>
+                
+                <!-- Stat 3 -->
+                <div class="stat-card bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-8 rounded-xl border border-white border-opacity-20 transition duration-300">
+                    <div class="text-4xl font-bold mb-2">35%</div>
+                    <div class="text-lg opacity-90">Average Efficiency Gain</div>
+                </div>
+                
+                <!-- Stat 4 -->
+                <div class="stat-card bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-8 rounded-xl border border-white border-opacity-20 transition duration-300">
+                    <div class="text-4xl font-bold mb-2">24/7</div>
+                    <div class="text-lg opacity-90">Support Availability</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">What Our Customers Say</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Hear from hoteliers who transformed their business with HotelEase</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-indigo-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Sarah Johnson</h4>
+                            <p class="text-gray-600 text-sm">General Manager, Seaside Resort</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"HotelEase has completely transformed our operations. We've reduced check-in time by 40% and increased our repeat guest rate significantly."</p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-indigo-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Michael Chen</h4>
+                            <p class="text-gray-600 text-sm">Owner, Urban Boutique Hotel</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"The analytics dashboard alone is worth the investment. We've optimized our pricing strategy and increased revenue by 22% in just 3 months."</p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-indigo-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Elena Rodriguez</h4>
+                            <p class="text-gray-600 text-sm">Operations Director, Luxury Chain</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Implementation was seamless and the support team is exceptional. Our staff adapted quickly and now can't imagine working without it."</p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Section -->
+    <div id="pricing" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Simple, Transparent Pricing</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Choose the plan that fits your property size and needs</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Plan 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition">
+                    <h3 class="text-xl font-semibold mb-2">Starter</h3>
+                    <p class="text-gray-600 mb-6">Perfect for small hotels & B&Bs</p>
+                    <div class="text-4xl font-bold mb-6">$49<span class="text-lg text-gray-500">/month</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Up to 20 rooms</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Basic reservation system</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Email support</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-times text-gray-300 mr-2"></i>
+                            <span>Advanced analytics</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-times text-gray-300 mr-2"></i>
+                            <span>Mobile app access</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-medium transition">Get Started</button>
+                </div>
+                
+                <!-- Plan 2 (Featured) -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-indigo-500 relative transform scale-105">
+                    <div class="absolute top-0 right-0 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">MOST POPULAR</div>
+                    <h3 class="text-xl font-semibold mb-2">Professional</h3>
+                    <p class="text-gray-600 mb-6">Ideal for mid-sized hotels</p>
+                    <div class="text-4xl font-bold mb-6">$99<span class="text-lg text-gray-500">/month</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Up to 100 rooms</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Advanced reservation system</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Priority email & chat support</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Basic analytics dashboard</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Mobile app for staff</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-medium transition">Get Started</button>
+                </div>
+                
+                <!-- Plan 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition">
+                    <h3 class="text-xl font-semibold mb-2">Enterprise</h3>
+                    <p class="text-gray-600 mb-6">For large hotels & chains</p>
+                    <div class="text-4xl font-bold mb-6">$199<span class="text-lg text-gray-500">/month</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Unlimited rooms</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Full feature suite</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>24/7 phone support</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Advanced analytics & AI</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Dedicated account manager</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-medium transition">Get Started</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-hotel text-indigo-500 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold">HotelEase</span>
+                    </div>
+                    <p class="text-gray-400">The complete hotel management solution for properties of all sizes.</p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Features</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Pricing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Integrations</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Updates</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Documentation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Guides</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Webinars</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-800">
+                <div class="md:flex md:items-center md:justify-between">
+                    <p class="text-gray-400 text-sm">© 2023 HotelEase. All rights reserved.</p>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-white text-sm">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    if(this.getAttribute('href') === '#') return;
+                    
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+    </script>
+</body>
+</html>

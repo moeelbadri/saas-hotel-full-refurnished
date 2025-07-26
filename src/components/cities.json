@@ -1,0 +1,164 @@
+[
+    {
+      "label": "أسوان",
+      "value": "aswan",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "أسيوط",
+      "value": "asyut",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "الأقصر",
+      "value": "luxor",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "الإسكندرية",
+      "value": "alexandria",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "الإسماعيلية",
+      "value": "ismailia",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "البحر الأحمر",
+      "value": "red-sea",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "البحيرة",
+      "value": "beheira",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "الجيزة",
+      "value": "giza",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "الدقهلية",
+      "value": "dakahlia",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "السويس",
+      "value": "suez",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "الشرقية",
+      "value": "sharqia",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "الغربية",
+      "value": "gharbia",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "الفيوم",
+      "value": "fayoum",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "القاهرة",
+      "value": "cairo",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "القليوبية",
+      "value": "qalyubia",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "المنوفية",
+      "value": "menoufia",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "المنيا",
+      "value": "minya",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "الوادي الجديد",
+      "value": "new-valley",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "بني سويف",
+      "value": "beni-suef",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "بورسعيد",
+      "value": "port-said",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "جنوب سيناء",
+      "value": "south-sinai",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "دمياط",
+      "value": "dameitta",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "سوهاج",
+      "value": "sohag",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "شمال سيناء",
+      "value": "north-sinai",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "قنا",
+      "value": "qena",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "كفر الشيخ",
+      "value": "kafr-el-sheikh",
+      "color": "",
+      "isFixed": true
+    },
+    {
+      "label": "مطروح",
+      "value": "matruh",
+      "color": "",
+      "isFixed": true
+    }
+  ]
