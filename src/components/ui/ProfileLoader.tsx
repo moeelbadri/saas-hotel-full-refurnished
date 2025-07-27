@@ -2,15 +2,17 @@
 "use client";
 
 import styled from "styled-components";
-import { Spinner } from "@/components/ui";
+import { Button, Spinner } from "@/components/ui";
 import { useGetProfile } from "@/hooks/authentication";
 import { Skeleton } from "@/components/ui/skeleton"
+import { useEffect } from "react";
 
 
 const FullPageLoader = styled.div`
   position: fixed;
   inset: 0;
   display: flex;
+  flex-direction:column;
   align-items: center;
   justify-content: center;
   z-index: 10000;
@@ -35,10 +37,18 @@ export default function ProfileLoader({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { isLoading, error } = useGetProfile();
+  const {isLoading, error, refetch } = useGetProfile();
 
-  if (!isLoading && !error) return children;
 
+  if (!isLoading && !isLoading) return children;
+   if(error?.message == "Authorization token not found") return children;
+  //  useEffect(() => {
+  //        setTimeout(() => {
+  //          if(error) {
+  //            if(error?.message == "Authorization token not found") return children;
+  //          }
+  //        }, 5000); // Retry after 5 seconds
+  //  },[error])
   return (
     <FullPageLoader>
       {isLoading && <Spinner/>}
@@ -46,6 +56,7 @@ export default function ProfileLoader({
         <>
           <ErrorIcon>⚠️</ErrorIcon>
           <ErrorMessage>{error.message}</ErrorMessage>
+          <Button onClick={()=>refetch()}>Try Again</Button>
         </>
       )}
     </FullPageLoader>

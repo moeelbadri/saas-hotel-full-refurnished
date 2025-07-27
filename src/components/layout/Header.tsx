@@ -11,7 +11,7 @@ const StyledHeader = styled.header`
     border-bottom: 1px solid var(--color-grey-100);
     width: 100%;
     box-sizing: border-box;
-    z-index: 1000;
+    z-index: 1001;
     @media (max-width: 1200px) {
         // padding: 0rem 1.5rem;
           height: 5rem;

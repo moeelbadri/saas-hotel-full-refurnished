@@ -41,7 +41,9 @@ function Sidebar() {
         // overflowY: SidebarOpen ? "hidden" : "hidden",
       }}
        onPointerEnter={(e) => {
-        setSidebarOpen(true);
+       if (navigator.maxTouchPoints === 0) {
+          setSidebarOpen(true); // Only allow on non-touch devices
+        }
       }}
       onPointerLeave={(e) => {
        setSidebarOpen(false);

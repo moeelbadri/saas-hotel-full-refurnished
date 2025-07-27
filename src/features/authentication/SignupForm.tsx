@@ -76,7 +76,7 @@ function SignupForm({onCloseModal}:{onCloseModal?: () => void;})  {
         all: false
     });
 
-    const { createEditUser , isLoading } = useCreateEditUser();
+    const { CreateEditUser , isLoading } = useCreateEditUser();
     const { register, formState, getValues, setValue, handleSubmit, reset, watch } = useForm();
     const { errors } = formState;
     const { isDarkMode } = useDarkMode();
@@ -141,7 +141,7 @@ function SignupForm({onCloseModal}:{onCloseModal?: () => void;})  {
     };
 
     function onSubmit({ email,password,full_name,phone,job,permissions}: any) {
-        createEditUser({email,password,full_name,phone,job,permissions},
+        CreateEditUser({email,password,full_name,phone,job,permissions},
             {
                 // onSettled: () => reset(),
                 // onSuccess: () => onCloseModal?.(),

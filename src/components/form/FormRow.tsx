@@ -35,11 +35,12 @@ const StyledFormRow = styled.div<{ displayType?: string }>`
         gap: 1rem;
         padding: 1.5rem 0;
         text-align: left;
-       &:has(input[type="checkbox"]) {
-            display: grid;
-             align-items: center;
-            grid-template-columns: 20rem 1.5fr 1.0fr;
-            gap: 4.4rem;
+        /* Applies to any element that has a checkbox, EXCEPT if it has the "excluded" class */
+        &:has(input[type="checkbox"]):not(:has(table)) {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 20rem 1.5fr 1.0fr;
+        gap: 4.4rem;
         }
     }
 

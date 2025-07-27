@@ -25,7 +25,7 @@ const Discount = styled.div`
 
 
 export default function CabinMoeRow({ cabin,groupedObject }: { cabin: Cabin;groupedObject:any }) {
-    const { isDeleting, deleteCabin } = useDeleteCabin();
+    const { isDeleting, deleteCabin,Tpromise:DeletePromise } = useDeleteCabin();
     const { isLoading: isDuplicating, createCabin: duplicateCabin } = useCreateCabin();
           const {
             id: cabinId,
@@ -148,7 +148,8 @@ export default function CabinMoeRow({ cabin,groupedObject }: { cabin: Cabin;grou
                                   Language={Language}
                                   disabled={false}
                                   onConfirm={() => deleteCabin(cabinId)}
-                                  // onConfirm={() => deleteBooking(BookingItem.id)} // Pass your delete mutation function here
+                                  isLoading={isDeleting}
+                                  promise={DeletePromise}
                               />
                           </Modal.Window>
                       </Menus.Menu>

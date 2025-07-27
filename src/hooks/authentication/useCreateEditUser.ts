@@ -48,8 +48,7 @@ export default function useCreateEditUser() {
                 promise.resolve = resolve;
                 promise.reject = reject;
             });
-            queryClient.setQueryData(["user"], user);
-            navigate.push("/dashboard");
+            // queryClient.setQueryData(["user"], user);
         },
 
         onError: (err: CustomError) => {

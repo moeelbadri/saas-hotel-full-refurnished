@@ -7,50 +7,6 @@ import useGetAnnouncements from "@/hooks/messages/useGetAnnoucements";
 import { formatDistanceFromNow } from "@/utils/helpers";
 import { CenteredError } from "@/components/ui";
 
-const fakeAnnouncements = [
-  {
-    id: 1,
-    topic: "System maintenance",
-    content: "The booking engine will be offline July 25th, 02:00–04:00 UTC.",
-    priority: "high",
-    date: new Date("2025-07-20"),
-  },
-  {
-    id: 2,
-    topic: "New cabin photos uploaded",
-    content: "Check out the refreshed galleries for cabins 5 & 7.",
-    priority: "medium",
-    date: new Date("2025-07-19"),
-  },
-  {
-    id: 3,
-    topic: "Weekend discount code",
-    content: "Use code SUN20 for 20 % off all weekend stays until August 31.",
-    priority: "low",
-    date: new Date("2025-07-18"),
-  },
-  {
-    id: 4,
-    topic: "New cabins available",
-    content: "Check out the new cabins for the upcoming season.",
-    priority: "low",
-    date: new Date("2025-07-17"),
-  },
-  {
-    id: 5,
-    topic: "New cabins available",
-    content: "Check out the new cabins for the upcoming season.",
-    priority: "low",
-    date: new Date("2025-07-16"),
-  },
-  {
-    id: 6,
-    topic: "New cabins available",
-    content: "Check out the new cabins for the upcoming season.",
-    priority: "low",
-    date: new Date("2025-07-15"),
-  },
-];
 
 const StyledSalesChart = styled.div`
     grid-column: 1 / -1;

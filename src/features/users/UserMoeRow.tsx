@@ -1,4 +1,5 @@
 "use client";
+
 import styled from "styled-components";
 import { formatCurrency, formateDate } from "@/utils/helpers";
 import { HiPencil, HiSquare2Stack, HiTrash, HiUserCircle } from "react-icons/hi2";
@@ -8,27 +9,8 @@ import { getRolesVar, useSettingsStore } from "@/components/WizardForm/useStore"
 import {RolesForm} from "@/features/authentication";
 import {useDeleteUser} from "@/hooks/authentication";
 import { useGetProfile } from "@/hooks/authentication";
+import { Tr,Td,ImageComponent,TdImage } from "@/components/ui/MoeTable";
 
-const TableRow = styled.div`
-    display: grid;
-    grid-template-columns: 0.5fr 3fr 2.5fr 2fr 2fr 2fr 1fr 0.3fr;
-    column-gap: 2.4rem;
-    align-items: center;
-    padding: 1.4rem 2.4rem;
-
-    &:not(:last-child) {
-        border-bottom: 1px solid var(--color-grey-100);
-    }
-`;
-
-const Img = styled.img`
-    display: block;
-    width: 6.4rem;
-    aspect-ratio: 3 / 2;
-    object-fit: cover;
-    object-position: center;
-    transform: scale(1.5) translateX(-7px);
-`;
 
 const UserAvatar = styled.div`
     display: flex;
@@ -95,8 +77,8 @@ const OwnerBadge = styled(Badge)`
     color: var(--color-yellow-700);
 `;
 
-export default function UserRow({ User }: { User: any; }) {
-    const Language = useSettingsStore(state => state.Language);
+export default function UserMoeRow({ User }: { User: any; }) {
+ const Language = useSettingsStore(state => state.Language);
     const { permissions , owner } = useGetProfile();
     const {DeleteUsers, isLoading:isDeleting, Tpromise: DeletePromise} = useDeleteUser();
     // Safe date formatting
@@ -171,45 +153,42 @@ export default function UserRow({ User }: { User: any; }) {
     const { count: permissionCount, mainPermissions } = getPermissionsSummary();
     const isActive = User.last_active_at && new Date(User.last_active_at) > new Date(Date.now() - 24 * 60 * 60 * 1000); // Active in last 24h
 
-    return (
-        <TableRow>
-            {/* User Avatar */}
-            <UserAvatar>
-                {User.full_name ? getUserInitials() : <HiUserCircle />}
-            </UserAvatar>
 
+    return (
+        <Tr>
+            <Td>
+                {/* User Avatar */}
+                <UserAvatar>
+                    {User.full_name ? getUserInitials() : <HiUserCircle />}
+                </UserAvatar>
+            </Td>
             {/* User Info */}
-            <Stacked>
+            <Td><Stacked>
                 <span>{User?.full_name || (Language === "en" ? "Unnamed User" : "مستخدم بدون اسم")}</span>
                 <span>{User.email ?? "-"}</span>
                 <span>{User.phone ?? "-"}</span>
-            </Stacked>
-
-            {/* Last Sign In */}
-            <Stacked>
+            </Stacked></Td>
+             {/* Last Sign In */}
+            <Td><Stacked>
                 <span>{lastSignInDate}</span>
                 <span>{lastSignInTime}</span>
                 <span>{User.last_action_at}</span>
-            </Stacked>
+            </Stacked></Td>
 
-            {/* Status */}
-            <div>
-                {User.is_owner ? (
-                    <OwnerBadge>
-                        {Language === "en" ? "Owner" : "المالك"}
-                    </OwnerBadge>
-                ) : (
-                    <StatusBadge isActive={isActive}>
-                        {isActive 
-                            ? (Language === "en" ? "Active" : "نشط")
-                            : (Language === "en" ? "Inactive" : "غير نشط")
-                        }
-                    </StatusBadge>
-                )}
-            </div>
-
-            {/* Permissions Summary */}
-            <div>
+            <Td>{User.is_owner ? (
+                <OwnerBadge>
+                    {Language === "en" ? "Owner" : "المالك"}
+                </OwnerBadge>
+            ) : (
+                <StatusBadge isActive={isActive}>
+                    {isActive 
+                        ? (Language === "en" ? "Active" : "نشط")
+                        : (Language === "en" ? "Inactive" : "غير نشط")
+                    }
+                </StatusBadge>
+            )}</Td>
+             {/* Permissions Summary */}
+            <Td>
                 <Stacked>
                    {User.is_owner?<span>{Language === "en" ? "Owner" : "المالك"}</span> : <span>{permissionCount} {Language === "en" ? "permissions" : "صلاحية"}</span>}
                     <PermissionsList>
@@ -225,19 +204,19 @@ export default function UserRow({ User }: { User: any; }) {
                         )}
                     </PermissionsList>
                 </Stacked>
-            </div>
-
+            </Td>
             {/* Phone */}
-            <Cabin>{User.phone ?? "-"}</Cabin>
+            
+            <Td>{User.phone ?? "-"}</Td>
 
             {/* Created Date */}
-            <Stacked>
-                <span>{formateDate(User.created_at, Language)}</span>
-            </Stacked>
-
-            {/* Actions */}
-            <div>
-                <Menus>
+            <Td>
+                <Stacked>
+                    <span>{formateDate(User.created_at, Language)}</span>
+                </Stacked>
+            </Td>
+            <Td>
+                  <Menus>
                     <Modal>
                         <Menus.Menu>
                             <Menus.Toggle id={User.id.toString()} />
@@ -276,7 +255,7 @@ export default function UserRow({ User }: { User: any; }) {
                         </Modal.Window>
                     </Modal>
                 </Menus>
-            </div>
-        </TableRow>
+            </Td>
+        </Tr>
     );
 }

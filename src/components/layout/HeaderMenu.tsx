@@ -24,8 +24,10 @@ const MenuToggleButton = styled.button`
   background: none;
   cursor: pointer;
   position: fixed;
-  z-index: 1001;
   transition: all 0.3s ease-in-out;
+    /* Create a new stacking context */
+  transform: translateZ(0);
+
   /* hide on devices with a fine pointer (mouse) */
   @media (pointer: fine) {
     display: none;
@@ -98,7 +100,7 @@ function HeaderMenu() {
   const SidebarOpen = useSettingsStore((state) => state.SidebarOpen);
   const Language = useSettingsStore((state) => state.Language);
   return (
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between",width:"100%" }}>
+    <div style={{display: "flex", alignItems: "center", justifyContent: "space-between",width:"100%" }}>
       <MenuToggleButton
         onClick={() => useSettingsStore.setState({ SidebarOpen: !SidebarOpen })}
         style={{

@@ -51,9 +51,6 @@ overflow: auto;
 
 // Mobile overlay for sidebar
 export const MobileOverlay = styled.div<{ isvisible: String }>`
-  display: none;
-  
-
     display: ${props => props.isvisible === 'true' ? 'block' : 'none'};
     position: fixed;
     top: 0;
@@ -65,7 +62,23 @@ export const MobileOverlay = styled.div<{ isvisible: String }>`
     backdrop-filter: blur(3px);
   
 `;
+export const MobileOverlay1 = styled.div<{ isvisible: String }>`
+  display: ${({ isvisible }) => (isvisible === 'true' ? 'block' : 'none')};
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1001;
+  pointer-events: auto;
+`;
 
+export const MobileOverlayBlur = styled.div`
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(3px);
+  background-color: rgba(0, 0, 0, 0.5);
+`;
 export function AppLayout({ children }: any) {
   // Now we use the store hook INSIDE a component
    const SidebarOpen = useSettingsStore(state => state.SidebarOpen);

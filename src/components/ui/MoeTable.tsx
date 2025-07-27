@@ -80,7 +80,7 @@ const Tr = styled.tr`
       max-width: 90%;
       max-height: 90%;
       transform: translate(-50%, -50%);
-      z-index: 1000;
+      z-index: 1002;
       border: 20px solid #fff;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     `}

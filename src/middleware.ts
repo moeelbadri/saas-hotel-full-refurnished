@@ -4,14 +4,18 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const token = request.cookies.get("auth")?.value; // Check for token
   // Define protected routes (adjust as needed)
-  const protectedRoutes = ["/dashboard", 
-    "/profile", "/settings","/reports","/statistics","/users",
-    "/storage","/guests","/rooms","/bookings"];
+  const protectedRoutes = [
+    "/dashboard","/profile", "/settings","/reports","/statistics",
+    "/users","/storage","/guests","/rooms","/bookings"];
+    // console.log("Protected route hit:", pathname,token);
+
   if(token && pathname==="/") return NextResponse.redirect(new URL("/dashboard", request.url));
+  if(!token && pathname==="/login") return NextResponse.next();
+  // If the user is authenticated, allow access to all routes
+  if(token && pathname==="/login") return NextResponse.redirect(new URL("/dashboard", request.url));
   // Redirect unauthenticated users
   if (protectedRoutes.some((route) => pathname.startsWith(route))) {
-    // console.log("Protected route hit:", pathname,!token && pathname!=="/login");
-    if(!token && pathname!=="/login") return NextResponse.redirect(new URL("/login", request.url));
+    if (!token && pathname!=="/login") return NextResponse.redirect(new URL("/login", request.url));
     if (token && pathname==="/") return NextResponse.redirect(new URL("/dashboard", request.url));
     // if (!token) {return NextResponse.redirect(new URL("/login", request.url));}
   }
@@ -24,5 +28,6 @@ export function middleware(request: NextRequest) {
 // };
 
 export const config = {
-  matcher: ["/:path*"], // Apply middleware to all routes for testing
+  matcher: ["/dashboard","/profile", "/settings","/reports","/statistics",
+    "/users","/storage","/guests","/rooms","/bookings/:path*","/login"], // Apply middleware to all routes for testing
 };
